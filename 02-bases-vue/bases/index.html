@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.Js Intro</title>
+  </head>
+  <body>
+    <!-- Renderizar absoluto de este DIV -->
+    <div id="app">
+      <h1>Hola Mundo</h1>
+      <!-- Expresiones que se pueden utilizar con {{}} -->
+      <!-- <p>{{ 1 + 1 }}</p>
+      <p>{{ [{},{}] }}</p>
+      <p>{{ true ? 'Activo' : 'Inactivo' }}</p> -->
+      <h3>{{ quote }}</h3>
+      <blockquote>-{{ author }}</blockquote>
+
+      <button @click="changeQuote()">Change Quote</button>
+      <!-- <button v-on:click="changeQuote">Change Quote</button> -->
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

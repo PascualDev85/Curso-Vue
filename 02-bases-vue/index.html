@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.Js Intro</title>
+  </head>
+  <body>
+    <!-- Renderizar absoluto de este DIV -->
+    <div id="app">
+      <h1>Batman quotes <small>{{ newQuote }}</small></h1>
+      <!-- Modificador de eventos -->
+      <!-- El v-model es una forma bidireccional de comunicar la vista con la lógica del componente -->
+      <input type="text" v-model="newQuote" v-on:keypress.enter="addQuote" />
+      <hr />
+      <ul>
+        <li v-for="( { quote, author }, index ) in quotes">
+          <!-- desestructurar -->
+          <span>{{ index + 1 }} - {{ quote }}</span>
+          <!-- <blockquote v-if="author">-{{ author }}</blockquote> -->
+          <blockquote v-show="author">-{{ author }}</blockquote>
+          <!-- el v-show elemento se construye en html lo que oculta con el display:none -->
+        </li>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
