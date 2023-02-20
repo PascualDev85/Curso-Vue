@@ -9,8 +9,9 @@
     {{ link.name }}
   </a>
   <!-- los v-slot es  -->
-  <router-link v-else :to="link.to" v-slot="{ href, isActive }">
-    <a :href="href" :class="isActive ? 'is-active' : 'normal-link'">
+  <router-link v-else :to="route" v-slot="{ isActive }">
+    <!-- href, isActive -->
+    <a :class="isActive ? 'is-active' : 'normal-link'">
       {{ link.name }}
     </a>
     <!-- {{ link.name }} -->
@@ -30,6 +31,11 @@ export default {
     isExternalLink() {
       return this.link.to.startsWith("http");
     },
+    route() {
+      return this.link.id === undefined
+        ? { name: this.link.to }
+        : { name: this.link.to, params: { id: this.link.id } };
+    },
   },
 };
 </script>
@@ -39,6 +45,7 @@ export default {
   color: #016b4a;
   text-decoration: underline;
 }
+
 .normal-link {
   font-weight: bold;
   color: #3eaf7c;
