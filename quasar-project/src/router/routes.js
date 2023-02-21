@@ -1,18 +1,33 @@
-import daybookRouter from "../modules/daybook/router";
+import HomePageVue from "src/pages/HomePage.vue";
 
 const routes = [
   {
     path: "/",
+    name: "Home",
+    component: HomePageVue,
+  },
+  {
+    path: "/about",
+    name: "About",
+    component: () => import("pages/AboutPage.vue"),
+  },
+
+  {
+    path: "/daybook",
     component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: "/home", component: () => import("pages/HomePage.vue") },
-      { path: "/about", component: () => import("pages/AboutPage.vue") },
+      {
+        path: "",
+        name: "no-entry",
+        component: () => import("../modules/daybook/views/NoEnrySelected.vue"),
+      },
+      {
+        path: ":id",
+        name: "entry",
+        component: () => import("../modules/daybook/views/EntryView.vue"),
+      },
     ],
   },
-  // {
-  //   path: "daybook",
-  //   ...daybookRouter,
-  // },
 
   // Always leave this as last one,
   // but you can also remove it

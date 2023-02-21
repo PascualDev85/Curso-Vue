@@ -1,12 +1,18 @@
 <template>
-  <q-page class="flex column">
+  <div class="flex column">
     <h1>Hola Mundo</h1>
     <div>
-      <q-btn class="q-ma-md" color="primary" glossy label="Primary" />
+      <q-btn
+        class="q-ma-md"
+        color="primary"
+        glossy
+        label="Primary"
+        to="/daybook"
+      />
       <q-btn class="q-ma-md" color="secondary" glossy label="Secondary" />
       <q-btn class="q-ma-md" color="accent" glossy label="Accent" />
     </div>
-  </q-page>
+  </div>
 </template>
 
 <script>
